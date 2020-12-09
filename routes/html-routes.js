@@ -14,6 +14,18 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/signup.html"));
   });
 
+  app.get("/profile", function(req, res) {
+    // If the user already has an account send them to the members page
+    
+    res.sendFile(path.join(__dirname, "../public/profile.html"));
+  });
+
+  app.get("/chat", function(req, res) {
+    // If the user already has an account send them to the members page
+    
+    res.sendFile(path.join(__dirname, "../public/chat.html"));
+  });
+
   app.get("/login", function(req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
