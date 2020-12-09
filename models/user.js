@@ -32,7 +32,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     rooms_joined:{
-      type: DataTypes.SET,
+      type: DataTypes.STRING,
       allowNull: true
     }
   });
