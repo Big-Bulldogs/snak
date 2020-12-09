@@ -1,22 +1,22 @@
 {
   "development": {
-    "username": "process.env.USER",
-    "password": "process.env.PASSWORD",
-    "database": "process.env.DB",
+    "username": "w48bh6pw6fsg3kvw",
+    "password": "dfaux3lfahxwbubz",
+    "database": "l5s9wbtravcbbz60",
     "host": "d1kb8x1fu8rhcnej.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   },
   "test": {
-    "username": "process.env.USER",
-    "password": "process.env.PASSWORD",
-    "database": "process.env.DB",
+    "username": "w48bh6pw6fsg3kvw",
+    "password": "dfaux3lfahxwbubz",
+    "database": "l5s9wbtravcbbz60",
     "host": "d1kb8x1fu8rhcnej.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   },
   "production": {
-    "username": "process.env.USER",
-    "password": "process.env.PASSWORD",
-    "database": "process.env.DB",
+    "username": "w48bh6pw6fsg3kvw",
+    "password": "dfaux3lfahxwbubz",
+    "database": "l5s9wbtravcbbz60",
     "host": "d1kb8x1fu8rhcnej.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   }
