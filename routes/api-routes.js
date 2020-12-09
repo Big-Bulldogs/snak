@@ -1,6 +1,6 @@
 // Requiring our models and passport as we've configured it
-var db = require("../models");
-var passport = require("../config/passport");
+const db = require("../models");
+const passport = require("../config/passport");
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -45,5 +45,11 @@ module.exports = function(app) {
         id: req.user.id
       });
     }
+  });
+
+  //Route for updating rooms user has joined
+  app.put('/api/users', (req, res) => {
+    const { id, rooms_joined } = req.body;
+    db.Todo.update({ rooms_joined }, { where: { id } }).then(dbUser => res.json(dbUser));
   });
 };
