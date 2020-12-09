@@ -24,10 +24,7 @@ io.on('connection', (socket) => {
   console.log('a user connected');
   socket.on('disconnect', () => {
     console.log('disconnect success')
-    socket.on('message', (msg) => {
-      console.log('Message: ' + msg)
-      io.emit('message', msg)
-  })
+    
 });
 // Requiring our routes
 require("./routes/html-routes.js")(app);
