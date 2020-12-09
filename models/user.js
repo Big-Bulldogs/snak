@@ -6,7 +6,7 @@ module.exports = function(sequelize, DataTypes) {
     // The email cannot be null, and must be a proper email before creation
     id:{
       type: DataTypes.CHAR(36),
-      defaultValue: Sequelize.UUIDV4,
+      defaultValue: sequelize.UUIDV4,
       allowNull: false,
       unique:true
     },
