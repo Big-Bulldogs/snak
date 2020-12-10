@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <!--  This file has been downloaded from bootdey.com    @bootdey on twitter -->
     <!--  All snippets are MIT license http://bootdey.com/license -->
-    <title>bs4 simple chat app - Bootdey.com</title>
+    <title>Snak simple chat app - Big Bull Dogs.com</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="http://netdna.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
@@ -20,14 +20,14 @@
         <div class="page-title">
             <div class="row gutters">
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                    <h5 class="title">Chat App</h5>
+                    <h5 class="title">Snak Chat App</h5>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                     <div class="daterange-container">
                         <div class="date-range">
                             <div id="reportrange">
                                 <i class="fa fa-calendar cal"></i>
-                                <span class="range-text">Jun 11, 2019 - Jul 10, 2019</span>
+                                <span class="range-text">{{RangeText}}</span>
                                 <i class="fa fa-chevron-down arrow"></i>
                             </div>
                         </div>
@@ -73,7 +73,7 @@
                                                 <span class="status busy"></span>
                                             </div>
                                             <p class="name-time">
-                                                <span class="name">Steve Bangalter</span>
+                                                <span class="name">{{name}}</span>
                                                 <span class="time">15/02/2019</span>
                                             </p>
                                         </li>
@@ -84,7 +84,7 @@
                                                 <span class="status offline"></span>
                                             </div>
                                             <p class="name-time">
-                                                <span class="name">Steve Bangalter</span>
+                                                <span class="name">{{name}}</span>
                                                 <span class="time">15/02/2019</span>
                                             </p>
                                         </li>
@@ -95,7 +95,7 @@
                                                 <span class="status away"></span>
                                             </div>
                                             <p class="name-time">
-                                                <span class="name">Peter Gregor</span>
+                                                <span class="name">{{name}}</span>
                                                 <span class="time">12/02/2019</span>
                                             </p>
                                         </li>
@@ -106,7 +106,7 @@
                                                 <span class="status busy"></span>
                                             </div>
                                             <p class="name-time">
-                                                <span class="name">Jessica Larson</span>
+                                                <span class="name">{{name}}</span>
                                                 <span class="time">11/02/2019</span>
                                             </p>
                                         </li>
@@ -117,7 +117,7 @@
                                                 <span class="status offline"></span>
                                             </div>
                                             <p class="name-time">
-                                                <span class="name">Lisa Guerrero</span>
+                                                <span class="name">{{name}}</span>
                                                 <span class="time">08/02/2019</span>
                                             </p>
                                         </li>
@@ -128,7 +128,7 @@
                                                 <span class="status away"></span>
                                             </div>
                                             <p class="name-time">
-                                                <span class="name">Michael Jordan</span>
+                                                <span class="name">{{name}}</span>
                                                 <span class="time">05/02/2019</span>
                                             </p>
                                         </li>
@@ -137,7 +137,7 @@
                             </div>
                             <div class="col-xl-8 col-lg-8 col-md-8 col-sm-9 col-9">
                                 <div class="selected-user">
-                                    <span>To: <span class="name">Emily Russell</span></span>
+                                    <span>To: <span class="name">{{name}}</span></span>
                                 </div>
                                 <div class="chat-container">
                                     <ul class="chat-box chatContainerScroll">
@@ -145,7 +145,7 @@
                                             <div class="chat-avatar">
                                                 <img src="https://www.bootdey.com/img/Content/avatar/avatar3.png"
                                                     alt="Retail Admin">
-                                                <div class="chat-name">Russell</div>
+                                                <div class="chat-name">{{chatName}}</div>
                                             </div>
                                             <div class="chat-text">Hello, I'm Russell.
                                                 <br>How can I help you today?</div>
@@ -158,14 +158,14 @@
                                             <div class="chat-avatar">
                                                 <img src="https://www.bootdey.com/img/Content/avatar/avatar3.png"
                                                     alt="Retail Admin">
-                                                <div class="chat-name">Sam</div>
+                                                <div class="chat-name">{{chatName}}</div>
                                             </div>
                                         </li>
                                         <li class="chat-left">
                                             <div class="chat-avatar">
                                                 <img src="https://www.bootdey.com/img/Content/avatar/avatar3.png"
                                                     alt="Retail Admin">
-                                                <div class="chat-name">Russell</div>
+                                                <div class="chat-name">{{chatName}}</div>
                                             </div>
                                             <div class="chat-text">Are we meeting today?
                                                 <br>Project has been already finished and I have results to show you.
@@ -179,14 +179,14 @@
                                             <div class="chat-avatar">
                                                 <img src="https://www.bootdey.com/img/Content/avatar/avatar5.png"
                                                     alt="Retail Admin">
-                                                <div class="chat-name">Joyse</div>
+                                                <div class="chat-name">{{chatName}}</div>
                                             </div>
                                         </li>
                                         <li class="chat-left">
                                             <div class="chat-avatar">
                                                 <img src="https://www.bootdey.com/img/Content/avatar/avatar3.png"
                                                     alt="Retail Admin">
-                                                <div class="chat-name">Russell</div>
+                                                <div class="chat-name">{{chatName}}</div>
                                             </div>
                                             <div class="chat-text">The rest of the team is not here yet.
                                                 <br>Maybe in an hour or so?</div>
@@ -206,7 +206,7 @@
                                             <div class="chat-avatar">
                                                 <img src="https://www.bootdey.com/img/Content/avatar/avatar3.png"
                                                     alt="Retail Admin">
-                                                <div class="chat-name">Russell</div>
+                                                <div class="chat-name">{{chatName}}</div>
                                             </div>
                                             <div class="chat-text">Actually everything was fine.
                                                 <br>I'm very excited to show this to our team.</div>
