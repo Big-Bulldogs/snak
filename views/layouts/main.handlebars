@@ -9,7 +9,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="http://netdna.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-	<link href="stylesheets/chat.css" rel="stylesheet">
+	<link href="public/stylesheets/chat.css" rel="stylesheet">
 	​
 </head>
 ​
@@ -39,6 +39,7 @@
 			</ul>
 		</div>
 	</nav>
+{{{body}}}
 	<div class="container">
 		​
 
@@ -68,7 +69,11 @@
 									<ul class="users">
 										<li class="person" data-chat="person1">
 											<div class="user">
+<<<<<<< HEAD
 												{{users}}
+=======
+											
+>>>>>>> a986fb8ae7507f52903cff718dd56f161da9c850
 											</div>
 											<p class="name-time">
 												<span class="name">#global</span>
@@ -89,8 +94,9 @@
 									</ul>
 									<div class="form-group mt-3 mb-0">
 										<textarea class="form-control" rows="3"
-											placeholder="Type your message here..."></textarea>
+											placeholder="Type your message here..." id="messagearea"></textarea>
 									</div>
+									<button type="button" class="btn btn-success" id="send">Send</button>
 								</div>
 							</div>
 						</div>
@@ -108,9 +114,7 @@
 	</div>
 	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-	<script type="text/javascript">
-
-	</script>
+	
 </body>
 ​
 
