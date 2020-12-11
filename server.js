@@ -21,6 +21,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
+
 io.on('connection', (socket) => {
   console.log('connection success')
   socket.on('disconnect', () => {
@@ -32,6 +33,9 @@ socket.on('message', (msg) => {
 })
 })
 
+app.get('/', function (req, res) {
+  res.render('profile');
+});
 
 require("./routes/api-routes.js")(app);
 
