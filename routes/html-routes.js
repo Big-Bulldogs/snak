@@ -17,13 +17,13 @@ module.exports = function(app) {
   app.get("/profile", function(req, res) {
     // If the user already has an account send them to the members page
     
-    res.sendFile(path.join(__dirname, "../public/profile.html"));
+    res.render(path.join(__dirname, "../public/profile.html"));
   });
 
   app.get("/chat", function(req, res) {
     // If the user already has an account send them to the members page
     
-    res.sendFile(path.join(__dirname, "../public/chat.html"));
+    res.render(path.join(__dirname, "../public/chat.html"));
   });
 
   app.get("/login", function(req, res) {
