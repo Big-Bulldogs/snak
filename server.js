@@ -4,7 +4,7 @@ var session = require("express-session");
 var http = require('http').createServer(app)
 var io = require('socket.io')(http)
 var passport = require("./config/passport");
-var exphbs = require("express-handlebars");
+var exphbs = require("express-handlebars")
 // Setting up port and requiring models for syncing
 var PORT = process.env.PORT || 8080;
 var db = require("./models");
@@ -22,6 +22,7 @@ app.use(passport.session());
 
 
 
+
 io.on('connection', (socket) => {
   console.log('connection success')
   socket.on('disconnect', () => {
@@ -33,15 +34,17 @@ socket.on('message', (msg) => {
 })
 })
 
+
+
+require("./routes/api-routes.js")(app);
 app.get('/', function (req, res) {
   res.render('profile');
 });
-
-require("./routes/api-routes.js")(app);
-
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(function() {
+  app.listen(
   http.listen(PORT, function() {
     console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
-  });
+  }));
+  
 });
