@@ -22,4 +22,24 @@ $(document).ready(function() {
     function populateMatchedUsers(name) {
       //for each search result with that name, create an <ul> populating the list with <li> containing data from the database
     }
+
+    $(function (){
+      var socket = io();
+      $('#send').on('click', function (event) {
+         event.preventDefault();
+         socket.emit('message', $('#messagearea').val());
+         $('#messagearea').val('');
+         return false;
+      });
+      socket.on('message', function(msg){
+             $("#messages").append($('<li>').text(msg))
+         })
+         $('#messagearea').on('keypress',function(e) {
+          if(e.which == 13) {
+              socket.emit('message', $('#messagearea').val());
+         $('#messagearea').val('');
+         return false;
+          }
+      });
+  });
   });
