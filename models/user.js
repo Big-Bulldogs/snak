@@ -13,8 +13,7 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: sequelize.UUIDV4,
       allowNull: false,
       unique:true,
-      primaryKey:true,
-      autoIncrement: true
+      primaryKey:true
     },
     first_name:{
       type: DataTypes.STRING,
