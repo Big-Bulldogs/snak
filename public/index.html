@@ -1,108 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="utf-8">
-    
-    <title>Snak</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="stylesheets/chat.css" rel="stylesheet">
+	<meta charset="utf-8">
+	<title>Snak</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://netdna.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="stylesheets/chat.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+	<script src="https://netdna.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script src="https://cdn.socket.io/socket.io-3.0.1.min.js"></script>
 
+	<script src="js/chat.js"></script>
 </head>
-
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <a class="navbar-brand" href="#"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chat-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M2 1h12a1 1 0 0 1 1 1v11.586l-2-2A2 2 0 0 0 11.586 11H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zm12-1a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12z"/>
-              </svg> Snak</a>
-          </div>
-          
-          <ul class="nav navbar-nav navbar-right">
-            <li class="nav-item"><a class="nav-link" href="#"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-lines-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7 1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm2 9a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"/>
-              </svg> Sign Up</a></li>
-            <li class="nav-item"><a class="nav-link" href="#"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-key-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M3.5 11.5a3.5 3.5 0 1 1 3.163-5H14L15.5 8 14 9.5l-1-1-1 1-1-1-1 1-1-1-1 1H6.663a3.5 3.5 0 0 1-3.163 2zM2.5 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
-              </svg>Login</a></li>
-          </ul>
-        </div>
-      </nav>
-    <div class="container">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#"><svg width="1em" height="1em" viewBox="0 0 16 16"
+						class="bi bi-chat-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd"
+							d="M2 1h12a1 1 0 0 1 1 1v11.586l-2-2A2 2 0 0 0 11.586 11H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zm12-1a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12z" />
+					</svg> Snak</a>
+			</div>
 
-        
-        <div class="content-wrapper">
+			<ul class="nav navbar-nav navbar-right">
+				<li class="nav-item"><a class="nav-link" href="#"><svg width="1em" height="1em" viewBox="0 0 16 16"
+							class="bi bi-person-lines-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+							<path fill-rule="evenodd"
+								d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7 1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm2 9a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z" />
+						</svg> Sign Up</a></li>
+				<li class="nav-item"><a class="nav-link" href="#"><svg width="1em" height="1em" viewBox="0 0 16 16"
+							class="bi bi-key-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+							<path fill-rule="evenodd"
+								d="M3.5 11.5a3.5 3.5 0 1 1 3.163-5H14L15.5 8 14 9.5l-1-1-1 1-1-1-1 1-1-1-1 1H6.663a3.5 3.5 0 0 1-3.163 2zM2.5 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+						</svg>Login</a></li>
+			</ul>
+		</div>
+	</nav>
 
-           
-            <div class="row gutters">
+	<div class="container">
+		​
 
-                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+		<div class="content-wrapper">
+			​<div class="row gutters">
+				​<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+					<div class="card m-4">
+						​<div class="row no-gutters">
+							<div class="col-xl-4 col-lg-4 col-md-4 col-sm-3 col-3">
+								<div class="users-container">
+									<div class="chat-search-box">
+										<div class="input-group">
+											<input class="form-control" placeholder="Search">
+											<div class="input-group-btn">
+												<button type="button" class="btn btn-info">
+													<i class="fa fa-search"></i>
+												</button>
+											</div>
+										</div>
+									</div>
+									<ul class="users">
+										<li class="person" data-chat="person1">
+											<div class="user">
+											
+											</div>
+											<p class="name-time">
+												<span class="name">#global</span>
 
-                    <div class="card m-4">
+											</p>
+										</li>
 
-                    
-                        <div class="row no-gutters">
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-3 col-3">
-                                <div class="users-container">
-                                    <div class="chat-search-box">
-                                        <div class="input-group">
-                                            <input class="form-control" placeholder="Search">
-                                            <div class="input-group-btn">
-                                                <button type="button" class="btn btn-info">
-                                                    <i class="fa fa-search"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <ul class="users">
-                                        <li class="person" data-chat="person1">
-                                            <div class="user">
-                                                
-                                            </div>
-                                            <p class="name-time">
-                                                <span class="name">#global</span>
-                                                
-                                            </p>
-                                        </li>
-                                      
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-xl-8 col-lg-8 col-md-8 col-sm-9 col-9">
-                                <div class="selected-user">
-                                    <span>To: <span class="name"><input class="form-control"></span></span>
-                                </div>
-                                <div class="chat-container">
-                                    <ul class="chat-box chatContainerScroll">
-                                        
-                                    </ul>
-                                    <div class="form-group mt-3 mb-0">
-                                        <textarea class="form-control" rows="3"
-                                            placeholder="Type your message here..."></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                       
-                    </div>
+									</ul>
+								</div>
+							</div>
+							<div class="col-xl-8 col-lg-8 col-md-8 col-sm-9 col-9">
+								<div class="selected-user">
+									<span>To: <span class="name"><input class="form-control"></span></span>
+								</div>
+								<div class="chat-container">
+									<ul class="chat-box chatContainerScroll">
 
-                </div>
-
-            </div>
-            
-
-        </div>
-        
-
-    </div>
-    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-
-    </script>
+									</ul>
+									<div class="form-group mt-3 mb-0">
+										<textarea class="form-control" rows="3"
+											placeholder="Type your message here..." id="messagearea"></textarea>
+									</div>
+									<button type="button" class="btn btn-success" id="send">Send</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					​</div>
+				</div>
+			</div>
+		</div>
 </body>
-
-</html>
+​</html>

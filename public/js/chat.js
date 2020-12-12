@@ -32,7 +32,7 @@ $(document).ready(function() {
          return false;
       });
       socket.on('message', function(msg){
-             $("#messages").append($('<li>').text(msg))
+             $(".chat-box").append($('<li>').text(msg))
          })
          $('#messagearea').on('keypress',function(e) {
           if(e.which == 13) {
