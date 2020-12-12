@@ -43,8 +43,16 @@ module.exports = function(sequelize, DataTypes) {
     rooms_joined:{
       type: DataTypes.STRING,
       allowNull: true
+    },
+
+    //Create new room for user
+    new_room:{
+      type:DataTypes.STRING,
+      allowNull: false,
     }
   });
+
+
   // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
   User.prototype.validPassword = function(password) {
     return bcrypt.compareSync(password, this.password);
