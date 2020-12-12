@@ -1,5 +1,9 @@
 // Requiring bcrypt for password hashing. Using the bcryptjs version as the regular bcrypt module sometimes causes errors on Windows machines
 const bcrypt = require("bcryptjs");
+
+//Package for creating unique IDs for each user as they register
+import { v4 as uuidv4 } from 'uuid';
+
 // Creating our User model
 module.exports = function(sequelize, DataTypes) {
   const User = sequelize.define("User", {
@@ -9,7 +13,8 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: sequelize.UUIDV4,
       allowNull: false,
       unique:true,
-      primaryKey:true
+      primaryKey:true,
+      autoIncrement: true
     },
     first_name:{
       type: DataTypes.STRING,
