@@ -1,6 +1,7 @@
 // Requiring our models and passport as we've configured it
 const db = require("../models");
 const passport = require("../config/passport");
+const { v4: uuidv4 } = require('uuid');
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -15,7 +16,7 @@ module.exports = function(app) {
   // otherwise send back an error
   app.post("/api/signup", function(req, res) {
     db.User.create({
-      id: req.body.id,
+      id: uuid.v4(),
       email: req.body.email,
       first_name: req.body.first_name,
       last_name: req.body.last_name,
