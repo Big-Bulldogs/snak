@@ -212,11 +212,12 @@ body {
 
 .chat-container {
     position: relative;
-    padding: 1rem;
+    padding: 10px;
     height: 500px;
     overflow: auto;
     background: #ffffff;
     border-radius: 10px;
+    
 }
 
 .chat-container li.chat-left,

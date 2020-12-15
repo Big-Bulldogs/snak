@@ -1,8 +1,11 @@
 $(document).ready(function() {
-  $('#signup').on('click', function () {
-		$('.signup').modal('show')
 
-		
+  
+
+  
+  $('#signup').on('click', function () {
+    $('.signup').modal('show')
+    	
   });
 
   $('#login').on('click', function () {
@@ -44,6 +47,15 @@ $(document).ready(function() {
       });
       socket.on('message', function(msg){
              $(".chat-box").append($('<li>').text(msg))
+
+             if(window.Notification && Notification.permission !== "denied") {
+              Notification.requestPermission(function(status) {  // status is "granted", if accepted by user
+                var n = new Notification('Message', { 
+                  body: msg,
+                  
+                }); 
+              });
+            }	
          })
          $('#messagearea').on('keypress',function(e) {
           if(e.which == 13) {
