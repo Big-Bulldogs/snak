@@ -1,18 +1,10 @@
+body {
+    background-color: #464D72;
+}
 
-/*************** 1.Variables ***************/
-
-
-/* ------------------ Color Pallet ------------------ */
-
-
-/*************** 2.Mixins ***************/
-
-
-/************************************************
-    ************************************************
-										Search Box
-	************************************************
-************************************************/
+.sender {
+    padding-bottom: 10px;
+}
 
 .chat-search-box {
     -webkit-border-radius: 3px 0 0 0;
@@ -223,6 +215,8 @@
     padding: 1rem;
     height: 500px;
     overflow: auto;
+    background: #ffffff;
+    border-radius: 10px;
 }
 
 .chat-container li.chat-left,
@@ -372,7 +366,7 @@ ul {
     background: #f4f5fb;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
-    border-radius: 2px;
+    border-radius: 10px;
     margin-bottom: 2rem;
     box-shadow: none;
 }
