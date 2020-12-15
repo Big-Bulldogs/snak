@@ -221,6 +221,7 @@
 .chat-container {
     position: relative;
     padding: 1rem;
+    height: 500px;
 }
 
 .chat-container li.chat-left,

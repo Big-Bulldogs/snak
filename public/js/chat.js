@@ -1,4 +1,15 @@
 $(document).ready(function() {
+  $('#signup').on('click', function () {
+		$('.signup').modal('show')
+
+		
+  });
+
+  $('#login').on('click', function () {
+		  $('.login').modal('show')
+	});
+
+
     // Getting references to our form and inputs
     const searchButton = $("#searchUser");
     let searchedName = $("input#name-input");
