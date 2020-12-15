@@ -222,6 +222,7 @@
     position: relative;
     padding: 1rem;
     height: 500px;
+    overflow: auto;
 }
 
 .chat-container li.chat-left,

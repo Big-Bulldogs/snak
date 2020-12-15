@@ -26,6 +26,12 @@ app.get("/", function(req, res) {
         console.log('Message: ' + msg)
         io.emit('message', msg)
     })
+
+    socket.emit('room.joined', socket.id + ' joined the room');
+    socket.on('room.join', function(room){
+      socket.join(room);
+      io.to(room).emit('room.joined', socket.id + ' joined ' + room)
+    })
   })
 
   require("./routes/api-routes.js")(app);
