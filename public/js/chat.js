@@ -57,6 +57,8 @@ $(document).ready(function() {
               });
             }	
          })
+
+
          $('#messagearea').on('keypress',function(e) {
           if(e.which == 13) {
               socket.emit('message', $('#messagearea').val());
@@ -64,5 +66,7 @@ $(document).ready(function() {
          return false;
           }
       });
+
+      
   });
   });
