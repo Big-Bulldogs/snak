@@ -63,6 +63,8 @@ module.exports = function(app) {
     db.Rooms.create({
       id: uuid.v4(),
       room_name: req.body.room_name
+    }).then(function(results){
+      res.json(results)
     })
   })
 }
