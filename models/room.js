@@ -1,6 +1,3 @@
-// //Package for creating unique IDs for each user as they register
-
-
 // Creating our Room model
 module.exports = function(sequelize, DataTypes) {
   const Room = sequelize.define("Rooms", {
