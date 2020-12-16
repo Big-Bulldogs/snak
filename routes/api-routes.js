@@ -16,7 +16,7 @@ module.exports = function(app) {
   // otherwise send back an error
   app.post("/api/signup", function(req, res) {
     db.User.create({
-      id: uuidv4(),
+      id: uuid.v4(),
       email: req.body.email,
       first_name: req.body.first_name,
       last_name: req.body.last_name,
@@ -58,4 +58,13 @@ module.exports = function(app) {
     const { id, rooms_joined } = req.body;
     db.Todo.update({ rooms_joined }, { where: { id } }).then(dbUser => res.json(dbUser));
   });
-};
+
+  app.post("/api/rooms", function(req, res) {
+    db.Rooms.create({
+      id: uuid.v4(),
+      room_name: req.body.room_name
+    }).then(function(results){
+      res.json(results)
+    })
+  })
+}

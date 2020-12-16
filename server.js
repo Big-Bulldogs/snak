@@ -34,10 +34,10 @@ app.use(express.static('public'))
     })
   })
 
-  require("./routes/api-routes.js")(app);
-
   require("./routes/html-routes.js")(app);
-  db.sequelize.sync().then(function() {
+  
+  require("./routes/api-routes.js")(app);
+  db.sequelize.sync({force: true}).then(function() {
   http.listen(PORT, () => {
     console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT)
   })
