@@ -12,10 +12,10 @@ app.use(express.json());
 app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(express.static('public'))
 app.get("/", function(req, res) {
-    res.sendFile(__dirname + '/index.html');
+    res.sendFile(__dirname + '/public/login.html');
   });
+app.use(express.static('public'))
 
   io.on('connection', (socket) => {
       console.log('connection success')
@@ -35,6 +35,8 @@ app.get("/", function(req, res) {
   })
 
   require("./routes/api-routes.js")(app);
+
+  require("./routes/html-routes.js")(app);
   db.sequelize.sync().then(function() {
   http.listen(PORT, () => {
     console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT)

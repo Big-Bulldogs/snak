@@ -1,7 +1,7 @@
 // Requiring our models and passport as we've configured it
 const db = require("../models");
 const passport = require("../config/passport");
-const uuid = require('uuid');
+const { v4: uuidv4 } = require('uuid');
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.

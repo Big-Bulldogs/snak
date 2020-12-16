@@ -30,10 +30,10 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
         isEmail: true
       },
+    },
     username: {
       type: DataTypes.STRING,
       allowNull: false
-    }
     },
     // The password cannot be null
     password: {
@@ -46,10 +46,10 @@ module.exports = function(sequelize, DataTypes) {
     },
 
     //Create new room for user
-    new_room:{
-      type:DataTypes.STRING,
-      allowNull: false,
-    }
+    // new_room:{
+    //   type:DataTypes.STRING,
+    //   allowNull: false,
+    // }
   });
 
 
