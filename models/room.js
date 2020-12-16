@@ -1,5 +1,5 @@
 // //Package for creating unique IDs for each user as they register
-import { v4 as uuidv4 } from 'uuid';
+
 
 // Creating our Room model
 module.exports = function(sequelize, DataTypes) {
