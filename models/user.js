@@ -2,7 +2,7 @@
 const bcrypt = require("bcryptjs");
 
 // //Package for creating unique IDs for each user as they register
-import { v4 as uuidv4 } from 'uuid';
+
 
 // Creating our User model
 module.exports = function(sequelize, DataTypes) {
@@ -43,6 +43,12 @@ module.exports = function(sequelize, DataTypes) {
     rooms_joined:{
       type: DataTypes.STRING,
       allowNull: true
+    },
+
+    //Create new room for user
+    new_room:{
+      type:DataTypes.STRING,
+      allowNull: true,
     }
   });
 
