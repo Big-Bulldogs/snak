@@ -45,7 +45,7 @@ $(document).ready(function() {
       var socket = io();
       $('#send').on('click', function (event) {
          event.preventDefault();
-         socket.emit('message', $('#messagearea').val() + " " + username);
+         socket.emit('message', $('#messagearea').val() + " // " + username);
          $('#messagearea').val('');
          return false;
       });
@@ -63,7 +63,7 @@ $(document).ready(function() {
          })
          $('#messagearea').on('keypress',function(e) {
           if(e.which == 13) {
-              socket.emit('message', $('#messagearea').val());
+              socket.emit('message', $('#messagearea').val()  + " // " + username);
          $('#messagearea').val('');
          return false;
           }
