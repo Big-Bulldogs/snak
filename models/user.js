@@ -46,10 +46,10 @@ module.exports = function(sequelize, DataTypes) {
     },
 
     //Create new room for user
-    // new_room:{
-    //   type:DataTypes.STRING,
-    //   allowNull: false,
-    // }
+     new_room:{
+       type:DataTypes.STRING,
+       allowNull: false,
+     }
   });
 
 
@@ -64,10 +64,26 @@ module.exports = function(sequelize, DataTypes) {
   });
   return User;
 };
+
+
 // Adding new rooms starter code
 //function handleRoomJoining(socket) {
   //socket.on('join', function(room) {
     //socket.leave(currentRoom[socket.id]);
     //joinRoom(socket, room.newRoom);
   //});
-//}
+//};
+// Leaving rooms function
+//function handleClientDisconnection(socket) {
+  //socket.on('disconnect', function() {
+    //var nameIndex = namesUsed.indexOf(nickNames[socket.id]);
+    //delete namesUsed[nameIndex];
+    //delete nickNames[socket.id];
+  //});
+//};
+// Changing rooms
+//Chat.prototype.changeRoom = function(room) {
+  //this.socket.emit('join', {
+    //newRoom: room
+  //});
+//};
