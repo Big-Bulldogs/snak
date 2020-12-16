@@ -48,7 +48,7 @@ module.exports = function(sequelize, DataTypes) {
     //Create new room for user
     new_room:{
       type:DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     }
   });
 
