@@ -4,7 +4,7 @@
 // Creating our Room model
 module.exports = function(sequelize, DataTypes) {
   const Room = sequelize.define("Room", {
-    // The room_name cannot be null and each room has a unique idea
+    // The room_name cannot be null and each room has a unique id
     id:{
       type: DataTypes.CHAR(36),
       defaultValue: sequelize.UUIDV4,
