@@ -36,12 +36,12 @@ $(document).ready(function() {
     $.post("/api/signup", {
       email: email,
       first_name: first_name,
-      lastt_name: last_name,
+      last_name: last_name,
       username: username,
       password: password
     })
       .then(function(data) {
-        window.location.replace("/chat");
+        window.location.replace("/login");
         // If there's an error, handle it by throwing up a bootstrap alert
       })
       .catch(handleLoginErr);
