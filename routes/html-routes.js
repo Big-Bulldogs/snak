@@ -24,7 +24,7 @@ module.exports = function(app) {
   app.get("/login", function(req, res) {
     // If the user already has an account send them to the chat page
     if (req.user) {
-      res.redirect("/index");
+      res.redirect("/chat");
     }
     res.sendFile(path.join(__dirname, "../public/login.html"));
   });
