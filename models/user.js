@@ -43,12 +43,6 @@ module.exports = function(sequelize, DataTypes) {
     rooms_joined:{
       type: DataTypes.STRING,
       allowNull: true
-    },
-
-    //Create new room for user
-    new_room:{
-      type:DataTypes.STRING,
-      allowNull: false,
     }
   });
 
