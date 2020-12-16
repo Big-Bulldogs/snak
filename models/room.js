@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 // Creating our Room model
 module.exports = function(sequelize, DataTypes) {
-  const Room = sequelize.define("Room", {
+  const Room = sequelize.define("Rooms", {
     // The room_name cannot be null and each room has a unique id
     id:{
       type: DataTypes.CHAR(36),

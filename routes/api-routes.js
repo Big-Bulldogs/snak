@@ -58,4 +58,11 @@ module.exports = function(app) {
     const { id, rooms_joined } = req.body;
     db.Todo.update({ rooms_joined }, { where: { id } }).then(dbUser => res.json(dbUser));
   });
-};
+
+  app.post("/api/rooms", function(req, res) {
+    db.Rooms.create({
+      id: uuid.v4(),
+      room_name: req.body.room_name
+    })
+  })
+}
