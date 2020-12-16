@@ -2,6 +2,7 @@ $(document).ready(function() {
 
   $.get("/api/user_data", function(data){
     console.log(data.username)
+    localStorage.setItem('username', data.username)
   })
 
   
