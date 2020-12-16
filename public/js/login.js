@@ -30,7 +30,7 @@ $(document).ready(function() {
       password: password
     })
       .then(function(data) {
-        window.location.replace("/index");
+        window.location.replace("/chat");
         // If there's an error, log the error
       })
       .catch(function(err) {
