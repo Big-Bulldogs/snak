@@ -45,12 +45,12 @@ $(document).ready(function() {
       var socket = io();
       $('#send').on('click', function (event) {
          event.preventDefault();
-         socket.emit('message', $('#messagearea').val());
+         socket.emit('message', $('#messagearea').val() + " // " + username);
          $('#messagearea').val('');
          return false;
       });
       socket.on('message', function(msg){
-             $(".chat-box").append($('<li>').text(msg + " -" + username))
+             $(".chat-box").append($('<li>').text(msg))
 
              if(window.Notification && Notification.permission !== "denied") {
               Notification.requestPermission(function(status) {  // status is "granted", if accepted by user
@@ -63,7 +63,7 @@ $(document).ready(function() {
          })
          $('#messagearea').on('keypress',function(e) {
           if(e.which == 13) {
-              socket.emit('message', $('#messagearea').val());
+              socket.emit('message', $('#messagearea').val()  + " // " + username);
          $('#messagearea').val('');
          return false;
           }
