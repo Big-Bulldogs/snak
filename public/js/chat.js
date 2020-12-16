@@ -5,7 +5,8 @@ $(document).ready(function() {
     localStorage.setItem('username', data.username)
   })
 
-  
+  const username = localStorage.getItem('username')
+
   $('#signup').on('click', function () {
     $('.signup').modal('show')
     	
@@ -49,7 +50,7 @@ $(document).ready(function() {
          return false;
       });
       socket.on('message', function(msg){
-             $(".chat-box").append($('<li>').text(msg))
+             $(".chat-box").append($('<li>').text(msg + " " + username))
 
              if(window.Notification && Notification.permission !== "denied") {
               Notification.requestPermission(function(status) {  // status is "granted", if accepted by user
