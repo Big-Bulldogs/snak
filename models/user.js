@@ -3,83 +3,82 @@ const bcrypt = require("bcryptjs");
 
 // //Package for creating unique IDs for each user as they register
 
-
 // Creating our User model
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   const User = sequelize.define("User", {
     // The email cannot be null, and must be a proper email before creation
-    id:{
+    id: {
       type: DataTypes.CHAR(36),
       defaultValue: sequelize.UUIDV4,
       allowNull: false,
-      unique:true,
-      primaryKey:true
+      unique: true,
+      primaryKey: true,
     },
-    first_name:{
+    first_name: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
-    last_name:{
+    last_name: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
       validate: {
-        isEmail: true
+        isEmail: true,
       },
     },
     username: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     // The password cannot be null
     password: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
-    rooms_joined:{
+    rooms_joined: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: true,
     },
-
-    
   });
 
-
   // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
-  User.prototype.validPassword = function(password) {
+  User.prototype.validPassword = function (password) {
     return bcrypt.compareSync(password, this.password);
   };
   // Hooks are automatic methods that run during various phases of the User Model lifecycle
   // In this case, before a User is created, we will automatically hash their password
-  User.addHook("beforeCreate", function(user) {
-    user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
+  User.addHook("beforeCreate", function (user) {
+    user.password = bcrypt.hashSync(
+      user.password,
+      bcrypt.genSaltSync(10),
+      null
+    );
   });
   return User;
 };
 
-
 // Adding new rooms starter code
 //function handleRoomJoining(socket) {
-  //socket.on('join', function(room) {
-    //socket.leave(currentRoom[socket.id]);
-    //joinRoom(socket, room.newRoom);
-  //});
+//socket.on('join', function(room) {
+//socket.leave(currentRoom[socket.id]);
+//joinRoom(socket, room.newRoom);
+//});
 //};
 // Leaving rooms function
 //function handleClientDisconnection(socket) {
-  //socket.on('disconnect', function() {
-    //var nameIndex = namesUsed.indexOf(nickNames[socket.id]);
-    //delete namesUsed[nameIndex];
-    //delete nickNames[socket.id];
-  //});
+//socket.on('disconnect', function() {
+//var nameIndex = namesUsed.indexOf(nickNames[socket.id]);
+//delete namesUsed[nameIndex];
+//delete nickNames[socket.id];
+//});
 //};
 // Changing rooms
 //Chat.prototype.changeRoom = function(room) {
-  //this.socket.emit('join', {
-    //newRoom: room
-  //});
+//this.socket.emit('join', {
+//newRoom: room
+//});
 //};
