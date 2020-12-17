@@ -61,38 +61,41 @@ $(document).ready(function () {
     });
     $("#add_chat_room").click(function (event) {
       console.log("testing");
+    })
       
-      //socket.on("connection", function (client) {
-        client.on("new room", function (room) {
-          console.log("joining room", room);
-          client.join(room);
-        });
+  //     //socket.on("connection", function (client) {
+  //       // client.on("new room", function (room) {
+  //       //   console.log("joining room", room);
+  //       //   client.join(room);
+  //       // });
 
 
-        client.on("leave room", function (room) {
-          console.log("leaving room", room);
-          client.leave(room);
-        });
+  //       // client.on("leave room", function (room) {
+  //       //   console.log("leaving room", room);
+  //       //   client.leave(room);
+  //       // });
 
-        client.on("send", function (data) {
-          console.log("sending message");
-          //io.sockets.in(data.room).emit("message", data);
-        });
-      });
-    });
-    //var socket = io.connect();
-    //socket.on("message", function (data) {
-      //console.log(data);
-    });
+  //       // client.on("send", function (data) {
+  //       //   console.log("sending message");
+  //       //   //io.sockets.in(data.room).emit("message", data);
+  //       // });
+  //     });
+  //   // });
+  //   //var socket = io.connect();
+  //   //socket.on("message", function (data) {
+  //     //console.log(data);
+  //   // });
 
-    //socket.emit("subscribe", "roomOne");
-    //socket.emit("subscribe", "roomTwo");
+  //   //socket.emit("subscribe", "roomOne");
+  //   //socket.emit("subscribe", "roomTwo");
 
-    $("#send").click(function () {
-      var room = $("#room").val(),
-        message = $("#message").val();
+  //   // $("#send").click(function () {
+  //   //   var room = $("#room").val(),
+  //   //     message = $("#message").val();
 
-      //socket.emit("send", { room: room, message: message });
-    });
-  //});
-//});
+  //   //   //socket.emit("send", { room: room, message: message });
+  //   // });
+  // //});
+});
+
+});
