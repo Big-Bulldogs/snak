@@ -7,14 +7,7 @@ $(document).ready(function() {
 
   const username = localStorage.getItem('username')
 
-  $('#signup').on('click', function () {
-    $('.signup').modal('show')
-    	
-  });
-
-  $('#login').on('click', function () {
-		  $('.login').modal('show')
-	});
+  $('#welcomeUser').text("Welcome " + username);
 
 
     // Getting references to our form and inputs

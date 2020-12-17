@@ -2,6 +2,10 @@ body {
     background-color: #464D72;
 }
 
+#welcomeUser {
+    color: aliceblue;
+}
+
 .sender {
     padding-bottom: 10px;
 }
