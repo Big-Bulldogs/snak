@@ -6,6 +6,7 @@ $(document).ready(function () {
   $.get("/api/rooms", function (data) {
     for(i=0; i < data.length; i++) {
       console.log(data[i].room_name);
+      $('.channel').append("<a class='list-group-item list-group-item-action active global'>" + data[i].room_name + "</a>")
     }
     
   });
