@@ -16,6 +16,9 @@ body {
     color: aliceblue;
 }
 
+#navDropDown {
+    margin-right: 15px;
+}
 .sender {
     padding-bottom: 10px;
 }

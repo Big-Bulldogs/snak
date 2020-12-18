@@ -6,6 +6,7 @@ $(document).ready(function () {
   
   const username = localStorage.getItem("username");
   
+
   $("#welcomeUser").text("Welcome " + username);
   
   
@@ -16,10 +17,18 @@ $(document).ready(function () {
   });
 
   $("#changeUsername").on("click", function() {
-    $('#changeUsernameModal').modal('show')
-    // .then(
-
-    // )
+    $('#changeUsernameModal').modal('show');
+    $("#saveNewUsername").on("click", function() {
+      let newUsername = $("#newUsername").val().trim();
+      console.log('newUsername:', newUsername)
+      $.ajax("/api/usernames", {
+        method: "PUT",
+        data: {newUsername: newUsername}
+      }).then(function(data) {
+        console.log(data);
+        $("#welcomeUser").text("Welcome " + username);
+      })
+    })
   });
   
   

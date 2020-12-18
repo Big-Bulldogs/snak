@@ -60,9 +60,19 @@ module.exports = function(app) {
   });
 
   //route for updating usernames
-  app.put('/api/usernames', (req, res) => {
-    const { id, username } = req.body;
-    db.User.update({ username }, { where: { id } }).then(dbUser => res.json(dbUser));
+  app.put('/api/usernames', (req, res, err) => {
+    if (!req.user) {
+      // The user is not logged in, send back an empty object
+      res.json({});
+    } else {
+    db.User.update(
+      {username: req.body.newUsername},
+      {where: {username: req.user.username}} 
+      ).then(function(data) {
+        res.json(data);
+        console.log('data:', data)
+      });
+    }
   });
 
   //route for getting user info
