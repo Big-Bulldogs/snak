@@ -4,6 +4,24 @@ $(document).ready(function () {
     localStorage.setItem("username", data.username);
   });
   
+  $.get("/api/rooms", function (data) {
+    for(i=0; i < data.length; i++) {
+      console.log(data[i].room_name);
+      $('.channel').append(`<a href='#' data-id='${data[i].room_name}' class='list-group-item list-group-item-action channelItem'> ${data[i].room_name} </a>`)
+    }
+    $('.channelItem').attr('id', function(i) {
+      return 'channelName'+(i+1);
+    });
+    
+    $('a[id^="channelName"]').on('click', function (){
+      $(".chat-box").append($("<li>").text(`You have now joined ${$(this).attr("data-id")}`));
+    })
+    
+  });
+  $.post("/api/rooms", function (data) {
+    console.log(data.room_name);
+  })
+
   const username = localStorage.getItem("username");
   
 
@@ -84,49 +102,13 @@ $(document).ready(function () {
         return false;
       }
     });
-    $("#add_chat_room").click(function (event) {
-      console.log("testing");
+    $(".add_room_btn").click(function () {
+      $.post("/api/rooms", {
+        room_name: $(".add_room").val().trim()
+      }, function(data){
+        console.log(data)
+      })
+      window.location.reload();
     })
-
-   
-    // $(".list-group-item").on("click", function(event){
-    //   $(this).addClass("active");
-    // });
-    
-    
-  //     //"socket.on("connection", function (client) {
-  //       // client.on("new room", function (room) {
-  //       //   console.log("joining room", room);
-  //       //   client.join(room);
-  //       // });
-
-
-  //       // client.on("leave room", function (room) {
-  //       //   console.log("leaving room", room);
-  //       //   client.leave(room);
-  //       // });
-
-  //       // client.on("send", function (data) {
-  //       //   console.log("sending message");
-  //       //   //io.sockets.in(data.room).emit("message", data);
-  //       // });
-  //     });
-  //   // });
-  //   //var socket = io.connect();
-  //   //socket.on("message", function (data) {
-  //     //console.log(data);
-  //   // });
-
-  //   //socket.emit("subscribe", "roomOne");
-  //   //socket.emit("subscribe", "roomTwo");
-
-  //   // $("#send").click(function () {
-  //   //   var room = $("#room").val(),
-  //   //     message = $("#message").val();
-
-  //   //   //socket.emit("send", { room: room, message: message });
-  //   // });
-  // //});
-});
-
-});
+  })
+})
