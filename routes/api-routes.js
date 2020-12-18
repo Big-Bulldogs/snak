@@ -92,4 +92,18 @@ module.exports = function(app) {
       res.json(results)
     })
   })
+  app.post("/api/rooms", function(req, res) {
+    db.Rooms.create({
+      id: add_chat_room(),
+      room_name: req.body.room_name
+    }).then(function(results){
+      res.json(results)
+    })
+  })
+  //GET route for all the rooms
+  app.get("/api/rooms", function(req, res) {
+    db.Rooms.findAll({}).then(function(dbTodo) {
+      res.json(dbTodo);
+    });
+  });
 }
