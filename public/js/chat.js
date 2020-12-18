@@ -6,6 +6,9 @@ $(document).ready(function () {
   $.get("/api/rooms", function (data) {
     console.log(data.room_name);
   });
+  $.post("/api/rooms", function (data) {
+    console.log(data.room_name);
+  })
 
   
 
