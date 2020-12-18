@@ -14,7 +14,7 @@ $(document).ready(function () {
     });
     
     $('a[id^="channelName"]').on('click', function (){
-      $('a[id^="channelName"]').addClass("active");
+      $(".chat-box").append($("<li>").text(`You have now joined ${$(this).attr("data-id")}`));
     })
     
   });
