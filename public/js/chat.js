@@ -3,6 +3,9 @@ $(document).ready(function () {
     console.log(data.username);
     localStorage.setItem("username", data.username);
   });
+  $.get("/api/rooms", function (data) {
+    console.log(data.room_name);
+  });
 
   const username = localStorage.getItem("username");
 
