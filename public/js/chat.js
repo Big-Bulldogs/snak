@@ -4,6 +4,24 @@ $(document).ready(function () {
     localStorage.setItem("username", data.username);
   });
   
+  $.get("/api/rooms", function (data) {
+    for(i=0; i < data.length; i++) {
+      console.log(data[i].room_name);
+      $('.channel').append("<a href='#' class='list-group-item list-group-item-action channelItem'>" + data[i].room_name + "</a>")
+    }
+    $('.channelItem').attr('id', function(i) {
+      return 'channelName'+(i+1);
+    });
+    
+    $('a[id^="channelName"]').on('click', function (){
+      $('a[id^="channelName"]').addClass("active");
+    })
+    
+  });
+  $.post("/api/rooms", function (data) {
+    console.log(data.room_name);
+  })
+
   const username = localStorage.getItem("username");
   
   $("#welcomeUser").text("Welcome " + username);
