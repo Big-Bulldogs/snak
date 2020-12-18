@@ -26,10 +26,6 @@ $(document).ready(function () {
   });
 
   const username = localStorage.getItem("username");
-<<<<<<< HEAD
-  
-=======
->>>>>>> 384f24f4c40b9310a5f5bfc8da4f9df97aa6676c
 
   $("#welcomeUser").text("Welcome " + username);
 
@@ -40,7 +36,6 @@ $(document).ready(function () {
     );
   });
 
-<<<<<<< HEAD
   $("#changeUsername").on("click", function() {
     $('#changeUsernameModal').modal('show');
     $("#saveNewUsername").on("click", function() {
@@ -54,10 +49,6 @@ $(document).ready(function () {
         $("#welcomeUser").text("Welcome " + username);
       })
     })
-=======
-  $("#changeUsername").on("click", function () {
-    $("#changeUsernameModal").modal("show");
->>>>>>> 384f24f4c40b9310a5f5bfc8da4f9df97aa6676c
   });
 
   // Getting references to our form and inputs
@@ -122,12 +113,6 @@ $(document).ready(function () {
         }
       );
       window.location.reload();
-<<<<<<< HEAD
-    })
-  })
-})
-=======
     });
   });
 });
->>>>>>> 384f24f4c40b9310a5f5bfc8da4f9df97aa6676c
