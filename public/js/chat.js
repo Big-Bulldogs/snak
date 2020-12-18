@@ -93,12 +93,13 @@ $(document).ready(function () {
         return false;
       }
     });
-    $(".add_room_btn").click(function (event) {
+    $(".add_room_btn").click(function () {
       $.post("/api/rooms", {
         room_name: $(".add_room").val().trim()
       }, function(data){
         console.log(data)
       })
+      window.location.reload();
     })
 
    
