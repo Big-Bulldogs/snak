@@ -77,7 +77,7 @@ $(document).ready(function () {
     })
 
     $('.channel').on('click', function(){
-      $("'#"+this.id+"'").addClass("active");
+      $('#'+this.id).addClass("active");
     });
     
   //     //socket.on("connection", function (client) {
