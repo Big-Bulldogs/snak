@@ -95,7 +95,7 @@ $(document).ready(function () {
     });
     $(".add_room_btn").click(function (event) {
       $.post("/api/rooms", {
-        room_name: $(".add_room").val.trim()
+        room_name: $(".add_room").val().trim()
       }, function(data){
         console.log(data)
       })
