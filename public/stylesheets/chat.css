@@ -6,6 +6,16 @@ body {
     color: aliceblue;
 }
 
+.dropdownInfo {
+    background-color: #464D72;
+    color: aliceblue;
+}
+
+#acctCreated {
+    background-color: #000a3a;
+    color: aliceblue;
+}
+
 .sender {
     padding-bottom: 10px;
 }

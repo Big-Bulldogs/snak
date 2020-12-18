@@ -3,10 +3,26 @@ $(document).ready(function () {
     console.log(data.username);
     localStorage.setItem("username", data.username);
   });
-
+  
   const username = localStorage.getItem("username");
-
+  
   $("#welcomeUser").text("Welcome " + username);
+  
+  
+  $.get("/api/user_info", function (data) {
+    let acctCreated = data.createdAt;
+    $("#acctCreated").text("Snak Member Since: " + moment(acctCreated).format('ll'));
+
+  });
+
+  $("#changeUsername").on("click", function() {
+    $('#changeUsernameModal').modal('show')
+    // .then(
+
+    // )
+  });
+  
+  
 
   // Getting references to our form and inputs
   const searchButton = $("#searchUser");

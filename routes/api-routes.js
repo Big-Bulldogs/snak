@@ -59,6 +59,31 @@ module.exports = function(app) {
     db.Todo.update({ rooms_joined }, { where: { id } }).then(dbUser => res.json(dbUser));
   });
 
+  //route for updating usernames
+  app.put('/api/usernames', (req, res) => {
+    const { id, username } = req.body;
+    db.User.update({ username }, { where: { id } }).then(dbUser => res.json(dbUser));
+  });
+
+  //route for getting user info
+  app.get('/api/user_info', (req, res) => {
+    // The user is not logged in, send back an empty object
+    if (!req.user) {
+      res.json({});
+    } else {
+       db.User.findAll({}).then(function(results) {
+        res.json({
+          email: req.user.email,
+          first_name: req.user.first_name,
+          last_name: req.user.last_name,
+          username: req.user.username,
+          createdAt: req.user.createdAt,
+          id: req.user.id
+        });
+       })
+    }
+  });
+
   app.post("/api/rooms", function(req, res) {
     db.Rooms.create({
       id: uuid.v4(),
