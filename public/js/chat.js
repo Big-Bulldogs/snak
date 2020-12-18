@@ -35,6 +35,9 @@ $(document).ready(function () {
 
   $("#changeUsername").on("click", function() {
     $('#changeUsernameModal').modal('show')
+    // .then(
+
+    // )
   });
   
   
@@ -100,3 +103,7 @@ $(document).ready(function () {
     })
 
    
+
+});
+
+});
