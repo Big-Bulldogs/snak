@@ -93,8 +93,10 @@ $(document).ready(function () {
         return false;
       }
     });
-    $("#add_chat_room").click(function (event) {
-      console.log("testing");
+    $(".add_room_btn").click(function (event) {
+      $.post("/api/rooms", {
+        room_name: $(".add_room").val.trim();
+      })
     })
 
    
