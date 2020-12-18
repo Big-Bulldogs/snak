@@ -4,7 +4,7 @@ $(document).ready(function () {
     localStorage.setItem("username", data.username);
   });
   $.get("/api/rooms", function (data) {
-    for(i=0; i > data.length; i++) {
+    for(i=0; i < data.length; i++) {
       console.log(data.room_name);
     }
     
