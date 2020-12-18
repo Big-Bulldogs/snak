@@ -12,8 +12,8 @@ $(document).ready(function () {
       return 'channelName'+(i+1);
     });
     
-    $('button[id^="channelName"]').on('click', function (){
-      $('#channelName').addClass("active");
+    $('a[id^="channelName"]').on('click', function (){
+      $('a[id^="channelName"]').addClass("active");
     })
     
   });
