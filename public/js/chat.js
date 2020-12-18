@@ -3,37 +3,44 @@ $(document).ready(function () {
     console.log(data.username);
     localStorage.setItem("username", data.username);
   });
-  
+
   $.get("/api/rooms", function (data) {
-    for(i=0; i < data.length; i++) {
+    for (i = 0; i < data.length; i++) {
       console.log(data[i].room_name);
-      $('.channel').append(`<a href='#' data-id='${data[i].room_name}' class='list-group-item list-group-item-action channelItem'> ${data[i].room_name} </a>`)
+      $(".channel").append(
+        `<a href='#' data-id='${data[i].room_name}' class='list-group-item list-group-item-action channelItem'> ${data[i].room_name} </a>`
+      );
     }
-    $('.channelItem').attr('id', function(i) {
-      return 'channelName'+(i+1);
+    $(".channelItem").attr("id", function (i) {
+      return "channelName" + (i + 1);
     });
-    
-    $('a[id^="channelName"]').on('click', function (){
-      $(".chat-box").append($("<li>").text(`You have now joined ${$(this).attr("data-id")}`));
-    })
-    
+
+    $('a[id^="channelName"]').on("click", function () {
+      $(".chat-box").append(
+        $("<li>").text(`You have now joined ${$(this).attr("data-id")}`)
+      );
+    });
   });
   $.post("/api/rooms", function (data) {
     console.log(data.room_name);
-  })
-
-  const username = localStorage.getItem("username");
-  
-
-  $("#welcomeUser").text("Welcome " + username);
-  
-  
-  $.get("/api/user_info", function (data) {
-    let acctCreated = data.createdAt;
-    $("#acctCreated").text("Snak Member Since: " + moment(acctCreated).format('ll'));
-
   });
 
+  const username = localStorage.getItem("username");
+<<<<<<< HEAD
+  
+=======
+>>>>>>> 384f24f4c40b9310a5f5bfc8da4f9df97aa6676c
+
+  $("#welcomeUser").text("Welcome " + username);
+
+  $.get("/api/user_info", function (data) {
+    let acctCreated = data.createdAt;
+    $("#acctCreated").text(
+      "Snak Member Since: " + moment(acctCreated).format("ll")
+    );
+  });
+
+<<<<<<< HEAD
   $("#changeUsername").on("click", function() {
     $('#changeUsernameModal').modal('show');
     $("#saveNewUsername").on("click", function() {
@@ -47,9 +54,11 @@ $(document).ready(function () {
         $("#welcomeUser").text("Welcome " + username);
       })
     })
+=======
+  $("#changeUsername").on("click", function () {
+    $("#changeUsernameModal").modal("show");
+>>>>>>> 384f24f4c40b9310a5f5bfc8da4f9df97aa6676c
   });
-  
-  
 
   // Getting references to our form and inputs
   const searchButton = $("#searchUser");
@@ -103,12 +112,22 @@ $(document).ready(function () {
       }
     });
     $(".add_room_btn").click(function () {
-      $.post("/api/rooms", {
-        room_name: $(".add_room").val().trim()
-      }, function(data){
-        console.log(data)
-      })
+      $.post(
+        "/api/rooms",
+        {
+          room_name: $(".add_room").val().trim(),
+        },
+        function (data) {
+          console.log(data);
+        }
+      );
       window.location.reload();
+<<<<<<< HEAD
     })
   })
 })
+=======
+    });
+  });
+});
+>>>>>>> 384f24f4c40b9310a5f5bfc8da4f9df97aa6676c
