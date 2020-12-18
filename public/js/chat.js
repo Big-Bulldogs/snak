@@ -75,7 +75,11 @@ $(document).ready(function () {
     $("#add_chat_room").click(function (event) {
       console.log("testing");
     })
-      
+
+    $('.channel').on('click', function(){
+      $("'#"+this.id+"'").addClass("active");
+    });
+    
   //     //socket.on("connection", function (client) {
   //       // client.on("new room", function (room) {
   //       //   console.log("joining room", room);
