@@ -77,10 +77,10 @@ $(document).ready(function () {
     })
 
     $('.channel').on('click', function(){
-      $('#'+this.id).addClass("active");
+      $(`"#"${this.id}`).addClass("active");
     });
     
-  //     //socket.on("connection", function (client) {
+  //     //"socket.on("connection", function (client) {
   //       // client.on("new room", function (room) {
   //       //   console.log("joining room", room);
   //       //   client.join(room);
