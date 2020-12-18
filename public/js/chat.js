@@ -4,7 +4,7 @@ $(document).ready(function () {
     localStorage.setItem("username", data.username);
   });
   $.get("/api/rooms", function (data) {
-    console.log(data.room_name);
+    console.log(data);
   });
   $.post("/api/rooms", function (data) {
     console.log(data.room_name);
