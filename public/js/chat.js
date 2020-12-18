@@ -4,6 +4,8 @@ $(document).ready(function () {
     localStorage.setItem("username", data.username);
   });
 
+  
+
   const username = localStorage.getItem("username");
 
   $("#welcomeUser").text("Welcome " + username);
