@@ -5,7 +5,7 @@ $(document).ready(function () {
   });
   $.get("/api/rooms", function (data) {
     for(i=0; i < data.length; i++) {
-      console.log(data.room_name);
+      console.log(data);
     }
     
   });
