@@ -76,7 +76,7 @@ $(document).ready(function () {
     })
 
     $('.channelItem').attr('id', function(i) {
-      return 'channelName'+(i+1);
+      return 'channelName'+(i+1).toString();
     });
     
     $('button[id^="channelName"]').on('click', function (){
