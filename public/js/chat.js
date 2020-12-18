@@ -6,7 +6,7 @@ $(document).ready(function () {
   $.get("/api/rooms", function (data) {
     for(i=0; i < data.length; i++) {
       console.log(data[i].room_name);
-      $('.channel').append("<a href='#' class='list-group-item list-group-item-action'>" + data[i].room_name + "</a>")
+      $('.channel').append("<a href='#' class='list-group-item list-group-item-action channelItem'>" + data[i].room_name + "</a>")
     }
     
   });
@@ -75,7 +75,7 @@ $(document).ready(function () {
       console.log("testing");
     })
 
-    $('.list-group-item').attr('id', function(i) {
+    $('.channelItem').attr('id', function(i) {
       return 'channelName'+(i+1);
     });
     
