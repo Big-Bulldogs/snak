@@ -6,8 +6,7 @@ $(document).ready(function () {
   $.get("/api/rooms", function (data) {
     for(i=0; i < data.length; i++) {
       console.log(data[i].room_name);
-      $('.channel').append("<a href='#' class='list-group-item list-group-item-action' id="
-      +data[i].id+">" + data[i].room_name + "</a>")
+      $('.channel').append("<a href='#' class='list-group-item list-group-item-action'>" + data[i].room_name + "</a>")
     }
     
   });
@@ -76,9 +75,18 @@ $(document).ready(function () {
       console.log("testing");
     })
 
-    $('.channel').on('click', function(){
-      $(`"#"${this.id}`).addClass("active");
+    $('.list-group-item').attr('id', function(i) {
+      return 'channelName'+(i+1);
     });
+    
+    $('button[id^="channelName"]').on('click', function (){
+      $('#channelName').addClass("active");
+    })
+    
+    // $(".list-group-item").on("click", function(event){
+    //   $(this).addClass("active");
+    // });
+    
     
   //     //"socket.on("connection", function (client) {
   //       // client.on("new room", function (room) {
