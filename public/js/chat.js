@@ -8,6 +8,13 @@ $(document).ready(function () {
       console.log(data[i].room_name);
       $('.channel').append("<a href='#' class='list-group-item list-group-item-action channelItem'>" + data[i].room_name + "</a>")
     }
+    $('.channelItem').attr('id', function(i) {
+      return 'channelName'+(i+1);
+    });
+    
+    $('button[id^="channelName"]').on('click', function (){
+      $('#channelName').addClass("active");
+    })
     
   });
   $.post("/api/rooms", function (data) {
@@ -75,14 +82,7 @@ $(document).ready(function () {
       console.log("testing");
     })
 
-    $('.channelItem').attr('id', function(i) {
-      return 'channelName'+(i+1).toString();
-    });
-    
-    $('button[id^="channelName"]').on('click', function (){
-      $('#channelName').addClass("active");
-    })
-    
+   
     // $(".list-group-item").on("click", function(event){
     //   $(this).addClass("active");
     // });
