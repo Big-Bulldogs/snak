@@ -3,7 +3,7 @@ $(document).ready(function () {
     console.log(data.username);
     localStorage.setItem("username", data.username);
   });
-
+  const username = localStorage.getItem("username");
   $.get("/api/rooms", function (data) {
     for (i = 0; i < data.length; i++) {
       console.log(data[i].room_name);
@@ -63,11 +63,9 @@ $(document).ready(function () {
 
 
   });
-  $.post("/api/rooms", function (data) {
-    console.log(data.room_name);
-  });
+  
 
-  const username = localStorage.getItem("username");
+  
 
 
   
@@ -129,9 +127,7 @@ $(document).ready(function () {
 
 
     $(".add_room_btn").click(function () {
-      $.post(
-        "/api/rooms",
-        {
+      $.post("/api/rooms",{
           room_name: $(".add_room").val().trim(),
         },
         function (data) {

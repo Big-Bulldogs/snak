@@ -40,7 +40,7 @@ io.on('connection', function (socket) {
   });
   socket.on('room.join', function (room) {
       socket.join(room);
-      io.to(room).emit('room.joined', socket.id + ' joined the ' + room);
+      io.to(room).emit('room.joined', ' User joined the ' + room);
       
       socket.on("message", (msg) => {
         console.log("Message: " + msg);
