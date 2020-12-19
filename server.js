@@ -19,21 +19,41 @@ app.get("/", function (req, res) {
 });
 app.use(express.static("public"));
 
-io.on("connection", (socket) => {
-  console.log("connection success");
+// io.on("connection", (socket) => {
+//   console.log("connection success");
+//   socket.on("disconnect", () => {
+//     console.log("disconnect success");
+//   });
+//   socket.on("message", (msg) => {
+//     console.log("Message: " + msg);
+//     io.emit("message", msg);
+//   });
+
+  
+// });
+
+io.on('connection', function (socket) {
+  
+   console.log("connection success");
   socket.on("disconnect", () => {
     console.log("disconnect success");
   });
-  socket.on("message", (msg) => {
-    console.log("Message: " + msg);
-    io.emit("message", msg);
+  socket.on('room.join', function (room) {
+      socket.join(room);
+      io.to(room).emit('room.joined', socket.id + ' joined the ' + room);
+      
+      socket.on("message", (msg) => {
+        console.log("Message: " + msg);
+        io.to(room).emit("message", msg);
+      });
+
+      socket.on('room.leave', function () {
+        socket.leave(room);
+            });
+     
   });
 
-  socket.emit("room.joined", socket.id + " joined the room");
-  socket.on("room.join", function (room) {
-    socket.join(room);
-    io.to(room).emit("room.joined", socket.id + " joined " + room);
-  });
+
 });
 
 require("./routes/html-routes.js")(app);
@@ -41,7 +61,7 @@ require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
 db.sequelize.sync().then(function () {
   http.listen(PORT, () => {
-    console.log(
+    console.log( 
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
       PORT,
       PORT
