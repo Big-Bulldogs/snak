@@ -56,7 +56,7 @@ module.exports = function(app) {
   //Route for updating rooms user has joined
   app.put('/api/users', (req, res) => {
     const { id, rooms_joined } = req.body;
-    db.Todo.update({ rooms_joined }, { where: { id } }).then(dbUser => res.json(dbUser));
+    db.User.update({ rooms_joined }, { where: { id } }).then(dbUser => res.json(dbUser));
   });
 
   //route for updating usernames
@@ -97,23 +97,16 @@ module.exports = function(app) {
   app.post("/api/rooms", function(req, res) {
     db.Rooms.create({
       id: uuid.v4(),
-      room_name: req.body.room_name
+      room_name: "/" + req.body.room_name
     }).then(function(results){
       res.json(results)
     })
   })
-  app.post("/api/rooms", function(req, res) {
-    db.Rooms.create({
-      id: add_chat_room(),
-      room_name: req.body.room_name
-    }).then(function(results){
-      res.json(results)
-    })
-  })
+  
   //GET route for all the rooms
   app.get("/api/rooms", function(req, res) {
-    db.Rooms.findAll({}).then(function(dbTodo) {
-      res.json(dbTodo);
+    db.Rooms.findAll({}).then(function(results) {
+      res.json(results);
     });
   });
 }
